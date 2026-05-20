@@ -3,6 +3,11 @@ import assets from "../assets/assets";
 import Title from "./Title";
 
 const ContactUs = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault(); // stops page reload
+    alert("Your response has been successfully submitted");
+  };
+
   return (
     <div
       id="contact-us"
@@ -13,7 +18,10 @@ const ContactUs = () => {
         desc="From strategy to execution, we craft digital solutions that move your business forward."
       />
 
-      <form className="grid sm:grid-cols-2 gap-3 max-w-2xl w-full">
+      <form
+        onSubmit={handleSubmit}
+        className="grid sm:grid-cols-2 gap-3 max-w-2xl w-full"
+      >
         <div>
           <p className="mb-2 text-sm font-medium">Your Name</p>
 
@@ -51,6 +59,7 @@ const ContactUs = () => {
             rows={8}
             placeholder="Enter your message"
             className="w-full p-3 text-sm outline-none rounded-lg border border-gray-300 dark:border-gray-600 bg-transparent"
+            required
           />
         </div>
 
